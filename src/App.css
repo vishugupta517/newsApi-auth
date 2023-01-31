@@ -1,0 +1,15 @@
+.container {
+  /* max-width: 1900px; */
+  margin: 0 auto;
+  width: 90%;
+}
+
+.footer-container {
+  text-align: center;
+  padding: 1.7em;
+  background-color: #bf360c;
+}
+
+.navbarStyle {
+  background-color: #bf360c;
+}
