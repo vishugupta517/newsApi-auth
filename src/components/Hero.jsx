@@ -7,7 +7,6 @@ import { Navbar } from "./Navbar";
 const Hero = ({ cat, userInput }) => {
   console.log("cat", cat);
   console.log("userIn", userInput);
-  // const [userInput, setQuery] = useState("");
   const [Data, setData] = useState([]);
   const fetchData = async (e) => {
     await axios
@@ -26,35 +25,8 @@ const Hero = ({ cat, userInput }) => {
   }, [cat, userInput]);
 
   function search(items) {
-    return Data.filter((item) => {
-      /*
- // in here we check if our region is equal to our c state
- // if it's equal to then only return the items that match
- // if not return All the countries
- */
-      // if (item.region == filterParam) {
-      //     return searchParam.some((newItem) => {
-      //       return (
-      //         item[newItem]
-      //             .toString()
-      //             .toLowerCase()
-      //             .indexOf(q.toLowerCase()) > -1
-      //                  );
-      //              });
-      //          } else if (filterParam == "All") {
-      //              return searchParam.some((newItem) => {
-      //                  return (
-      //                      item[newItem]
-      //                          .toString()
-      //                          .toLowerCase()
-      //                          .indexOf(q.toLowerCase()) > -1
-      //                  );
-      //              });
-      //          }
-    });
+    return Data.filter((item) => {});
   }
-
-  // useEffect = (() => {}, []);
 
   const newsRender1 = Data.slice(0, 1).map((news) => {
     const { urlToImage } = news;
