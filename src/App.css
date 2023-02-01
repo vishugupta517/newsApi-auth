@@ -13,3 +13,16 @@
 .navbarStyle {
   background-color: #bf360c;
 }
+
+.loginPage {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.titleHeading {
+  color: blue;
+}
+
+.container-login {
+  color: antiquewhite;
+}

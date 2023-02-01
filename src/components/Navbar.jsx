@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Hero from "./Hero";
+import { useUserAuth } from "../context/UserAuthContext";
 
 export const Navbar = (props) => {
   const [onSubmit, setOnSubmit] = useState("");
+  const { user } = useUserAuth();
+  // console.log("userId:", user);
 
   return (
     <div className="navbarStyle">

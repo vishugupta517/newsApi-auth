@@ -2,11 +2,10 @@
 import HeroStyle from "./Hero.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Navbar } from "./Navbar";
 
 const Hero = ({ cat, userInput }) => {
-  console.log("cat", cat);
-  console.log("userIn", userInput);
+  // console.log("cat", cat);
+  // console.log("userIn", userInput);
   const [Data, setData] = useState([]);
   const fetchData = async (e) => {
     await axios
@@ -24,15 +23,18 @@ const Hero = ({ cat, userInput }) => {
     fetchData();
   }, [cat, userInput]);
 
-  function search(items) {
-    return Data.filter((item) => {});
-  }
+  // function search(items) {
+  //   return Data.filter((item) => {});
+  // }
 
   const newsRender1 = Data.slice(0, 1).map((news) => {
-    const { urlToImage } = news;
     return (
       <div key={news.url}>
-        <img className={HeroStyle.mainNewsImage} src={urlToImage} alt="image" />
+        <img
+          className={HeroStyle.mainNewsImage}
+          src={news.urlToImage}
+          alt="image"
+        />
         <p className={`${HeroStyle.mainDate} ${HeroStyle.date}`}>
           {news.publishedAt}
         </p>
@@ -100,16 +102,14 @@ const Hero = ({ cat, userInput }) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{ minHeight: "100vh" }}>
         <h3 className={HeroStyle.topHeadlines}>Top stories</h3>
         <div className={HeroStyle.main}>
           <div className={HeroStyle.mainNewsPost}>{newsRender1}</div>
           <div className={HeroStyle.asideNewsPost}>{newsRender2}</div>
         </div>
         <h3 className={HeroStyle.topHeadlines}>Know what's happening</h3>
-        {/* <div className={HeroStyle.section}> */}
         <div className={HeroStyle.sectionCards}>{newsRender3}</div>
-        {/* </div> */}
       </div>
     </>
   );
