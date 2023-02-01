@@ -23,10 +23,6 @@ const Hero = ({ cat, userInput }) => {
     fetchData();
   }, [cat, userInput]);
 
-  // function search(items) {
-  //   return Data.filter((item) => {});
-  // }
-
   const newsRender1 = Data.slice(0, 1).map((news) => {
     return (
       <div key={news.url}>

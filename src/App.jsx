@@ -12,7 +12,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [inputText, setinputText] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
 
   return (
     <>
@@ -23,7 +22,7 @@ function App() {
               console.log(item);
               setinputText(item);
             }}
-          />
+          style />
           <Routes>
             <Route
               path="/home"

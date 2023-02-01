@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Hero from "./Hero";
 import { useUserAuth } from "../context/UserAuthContext";
+import { async } from "@firebase/util";
 
 export const Navbar = (props) => {
   const [onSubmit, setOnSubmit] = useState("");
-  const { user } = useUserAuth();
+  const { user, logOut } = useUserAuth();
   // console.log("userId:", user);
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <div className="navbarStyle">
@@ -71,6 +78,20 @@ export const Navbar = (props) => {
                   <Link className="nav-link" to="/technology">
                     Technology
                   </Link>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" to="/technology">
+                    {user && user.email}
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-outline-success"
+                    onClick={handleLogOut}
+                    style={{ display: user ? "block" : "none" }}
+                  >
+                    Log out
+                  </button>
                 </li>
               </ul>
               <form className="d-flex" role="search">

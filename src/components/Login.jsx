@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
-// import "../App.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,25 +31,29 @@ const Login = () => {
 
   return (
     <div className="container-login">
-      <h2 className="titleHeading">Login to IndiaTimes</h2>
+      <h4 className="titleHeading">Login to IndiaTimes</h4>
       {error && <div className="alert">{error}</div>}
       <form onSubmit={handleSubmit}>
         <input
+          className="form-input"
           type="email"
           placeholder="Email address"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="form-input"
           type="password"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="Submit">Log In</button>
-        <div className="google-btn" onClick={handleGoogleSignIn}>
-          google login
-        </div>
+        <button className="form-btn" type="Submit">
+          Log In
+        </button>
+        <button className="form-btn" onClick={handleGoogleSignIn}>
+          Login with google
+        </button>
         <div>
-          Dont have an account?<Link to="/signup">Sign Up</Link>
+          Dont have an account? <Link to="/signup">Sign Up</Link>
         </div>
       </form>
     </div>

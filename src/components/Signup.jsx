@@ -21,28 +21,30 @@ const Signup = () => {
     }
   };
   return (
-    <>
+    <div className="container-login">
       <h2 className="">Signup or Log In</h2>
       {error && <div className="alert">{error}</div>}
       <form onSubmit={handleSubmit}>
         <input
+          className="form-input"
           type="email"
           placeholder="Email address"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="form-input"
           type="password"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <div>
-          <button>Sign Up</button>
+          <button className="form-btn">Sign Up</button>
         </div>
       </form>
       <div>
         Already have an account? <Link to="/">Log In</Link>
       </div>
-    </>
+    </div>
   );
 };
 
